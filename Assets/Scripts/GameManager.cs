@@ -29,10 +29,17 @@ public class GameManager : MonoBehaviour
     // references
     public Player player;
     // public Weapon weapon;
+    public FloatingTextManager floatingTextManager;
 
     // logic
     public int pesos;
     public int experiance;
+
+    // floating text
+    public void ShowText(string message, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
+    {
+        floatingTextManager.Show(message, fontSize, color, position, motion, duration);
+    }
 
     /*
      * INT preferedSkin
