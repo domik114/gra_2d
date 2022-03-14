@@ -489,7 +489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339995234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.217, y: -0.235, z: 0}
+  m_LocalPosition: {x: -0.5653, y: -0.3103, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1561942104}
@@ -508,12 +508,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df8ccfdb6a847849a20dcb52feae6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 10
-  maxHitPoint: 10
+  HP: 10
+  maxHP: 10
   pushRecoverySpeed: 0.2
+  ySpeed: 0.5
+  xSpeed: 0.75
   xpValue: 1
-  triggerLength: 1
-  chaseLength: 5
+  triggerLength: 0.5
+  chaseLength: 1
+  filter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!1 &396987482
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +576,6 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   sceneNames:
-  - Dungeon1
   - SampleScene
 --- !u!61 &396987484
 BoxCollider2D:
@@ -2182,9 +2197,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f236eace0a2694bb1af866d3d19e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 10
-  maxHitPoint: 10
+  HP: 10
+  maxHP: 10
   pushRecoverySpeed: 0.2
+  ySpeed: 0.75
+  xSpeed: 1
 --- !u!212 &1139993371
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2244,7 +2261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139993369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.673, y: -0.321, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1951114891}
@@ -12944,6 +12961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1561942104}
   - component: {fileID: 1561942105}
+  - component: {fileID: 1561942106}
   m_Layer: 9
   m_Name: Hitbox
   m_TagString: Untagged
@@ -12991,6 +13009,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.100746766, y: 0.1405772}
   m_EdgeRadius: 0
+--- !u!114 &1561942106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561942103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7618156c5b06eb4f855e5a3e5d6d9e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  damage: 5
+  pushForce: 0
 --- !u!1 &1686056521
 GameObject:
   m_ObjectHideFlags: 0
@@ -13237,7 +13283,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  damagePoint: 1
+  damage: 1
   pushForce: 2
   weaponLevel: 0
 --- !u!61 &1951114894

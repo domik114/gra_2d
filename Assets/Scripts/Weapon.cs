@@ -6,7 +6,7 @@ using UnityEngine;
 public class Weapon : Collidable
 {
     // damage structure
-    public int damagePoint = 1;
+    public int damage = 1;
     public float pushForce = 2.0f;
 
     // upgrade
@@ -47,7 +47,7 @@ public class Weapon : Collidable
             // create a new damage object and send it to the fighter
             Damage dmg = new Damage 
             {
-                damageAmount = damagePoint,
+                damageAmount = damage,
                 pushForce = pushForce,
                 origin = transform.position,
             };

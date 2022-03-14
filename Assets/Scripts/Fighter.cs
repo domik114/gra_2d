@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Fighter : MonoBehaviour
 {
-    public int hitPoint = 10;
-    public int maxHitPoint = 10;
+    public int HP = 10;
+    public int maxHP = 10;
     public float pushRecoverySpeed = 0.2f;
 
     // immunity
@@ -21,14 +21,14 @@ public class Fighter : MonoBehaviour
         if (Time.time - lastImmune > immuneTime)
         {
             lastImmune = Time.time;
-            hitPoint -= dmg.damageAmount;
+            HP -= dmg.damageAmount;
             pushDirection = (transform.position - dmg.origin).normalized * dmg.pushForce;
 
             GameManager.instance.ShowText("-" + dmg.damageAmount.ToString(), 30, Color.red, transform.position, Vector3.zero, 0.5f);
 
-            if (hitPoint <= 0)
+            if (HP <= 0)
             {
-                hitPoint = 0;
+                HP = 0;
                 Death();
             }
         }

@@ -7,8 +7,8 @@ public abstract class Mover : Fighter
     protected BoxCollider2D boxColidder;
     protected Vector3 moveDelta;
     protected RaycastHit2D hit;
-    protected float ySpeed = 0.75f;
-    protected float xSpeed = 1.0f;
+    [SerializeField] protected float ySpeed = 0.75f;
+    [SerializeField] protected float xSpeed = 1.0f;
 
     protected virtual void Start()
     {
@@ -26,6 +26,12 @@ public abstract class Mover : Fighter
             transform.localScale = Vector3.one;
         else if (moveDelta.x < 0)
             transform.localScale = new Vector3(-1, 1, 1);
+
+        // add push vecotr if any
+        moveDelta += pushDirection;
+
+        // reduce the push force
+        pushDirection = Vector3.Lerp(pushDirection, Vector3.zero, pushRecoverySpeed);
 
         // make sure we can move in this direction by casting a box there first
         // if the box returns null, we can go
@@ -46,6 +52,6 @@ public abstract class Mover : Fighter
         {
             // moving 
             transform.Translate(moveDelta.x * Time.deltaTime, 0, 0);
-        }
+        }        
     }
 }
