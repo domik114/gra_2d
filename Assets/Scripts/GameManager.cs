@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         // change player skin
         pesos = int.Parse(data[1]);
         experiance = int.Parse(data[2]);
-        // weapon lever
+        // weapon level
 
         Debug.Log("LoadState");
     }
